@@ -1,0 +1,123 @@
+
+> cinebridge@1.0.0 test:coverage
+> c8 --all --include=src/**/*.ts --reporter=text --reporter=html --reporter=json-summary --check-coverage --lines=81 --statements=81 --functions=81 --branches=81 node --env-file-if-exists=.env --test test/*.test.ts test/integration/*.test.ts
+
+✔ cache fresco e leituras concorrentes compartilham a consulta (21.7742ms)
+✔ cache expirado tem prazo próprio de contingência, preservado na invalidação (4.319ms)
+✔ consulta nova após invalidação não recebe nem armazena snapshot anterior (1.121ms)
+✔ timeout retorna contingência e permite uma nova tentativa mesmo com leitura travada (8.5424ms)
+✔ leitura que terminou depois do timeout não sobrescreve uma leitura mais recente (6.0728ms)
+✔ falhas síncronas, rejeições tardias e cadastro vazio são tratados (26.4646ms)
+✔ configuração inválida do catálogo falha na inicialização (1.0983ms)
+✔ Strategy muda a recomendação sem alterar o projeto original (35.6821ms)
+✔ cosseno penaliza a falta de proficiência e competência ausente (0.5514ms)
+✔ colaborativa usa notas de vizinhos em produções compartilhadas (7.3567ms)
+✔ filtros obrigatórios respeitam cidade, papel e o período inteiro (2.9888ms)
+✔ alocação evita escolha gulosa que impediria uma equipe viável (5.5061ms)
+✔ busca equipe completa além do limite exibido e sem ultrapassar orçamento (5.7325ms)
+✔ equipe parcial prioriza papel de maior peso e sinaliza motivo (1.2438ms)
+✔ substituição preserva valores e confirmações dos fixos e exclui recusados (9.1819ms)
+✔ Visitor valida, calcula e relata pelos dois tipos de elemento (2.5346ms)
+✔ Visitors verificam composição real, inclusive papéis e custos pendentes (1.4132ms)
+✔ falha de cadastro preserva membros existentes e explica o limite (0.8011ms)
+✔ métrica sintética usa rótulos explícitos e revela diferença entre estratégias (5.9086ms)
+✔ datas de calendário e valores de domínio são validados (1.3562ms)
+✔ Template Method mantém ordem e não permite substituir orquestrar (0.517ms)
+✔ custo zero, pesos personalizados e limites mantêm números finitos (0.3691ms)
+✔ viabilidade da alocação coincide com busca exaustiva em catálogos pequenos (25.8792ms)
+✔ publicação aguarda listeners assíncronos e permite execução independente (22.8385ms)
+✔ throws e rejeições são isolados; apenas o observador que falha é repetido (2.4541ms)
+✔ falha do callback de observabilidade não interrompe os observadores (3.116ms)
+✔ timeout aborta sinal cooperativo e não bloqueia observadores saudáveis (14.5514ms)
+✔ rejeição tardia depois de timeout é observada (45.072ms)
+✔ publicações concorrentes do mesmo evento compartilham a entrega (17.4447ms)
+✔ cache tem tamanho limitado e eventos expulsos podem ser reentregues (6.0514ms)
+✔ registro durável evita repetir observador após reinício do barramento (2.0111ms)
+✔ erro do registro durável é relatado sem marcar a publicação como entregue (7.8807ms)
+✔ consulta travada no registro durável também respeita prazo de encerramento (8.5721ms)
+✔ encerramento drena publicações aceitas e rejeita novas operações (14.8631ms)
+✔ validar configuração e inscrições evita ambiguidade de observadores (1.1876ms)
+✔ notificações e auditoria têm IDs estáveis e destinos independentes (2.715ms)
+✔ notificadores ignoram destinatários inválidos e não duplicam o mesmo destino (3.3304ms)
+✔ observadores respeitam cancelamento e falhas de persistência (0.9849ms)
+✔ HTTP diferencia persistência indisponível, conflitos e falhas inesperadas (268.7591ms)
+✔ worker da aplicação entrega notificações sem bloquear a resposta HTTP (82.4697ms)
+▶ PostgreSQL real: transações, integridade e outbox
+  ✔ aplica migração uma vez e verifica a conexão (84.7978ms)
+  ✔ carrega competências e avaliações sem multiplicar linhas e substitui cadastros (100.3749ms)
+  ✔ reverte todo cadastro quando uma competência viola integridade (92.2805ms)
+  ✔ persiste estado relacional e evento atomicamente (114.7022ms)
+  ✔ mantém o histórico de recomendações, convites encerrados e composição atual (127.8083ms)
+  ✔ serializa alterações concorrentes sem perder versões ou confirmar duas vezes (231.6632ms)
+  ✔ reverte falhas de callback, IDs alterados e violações de FK (137.4485ms)
+  ✔ suporta equipe parcial sem membros (93.4202ms)
+  ✔ entrega eventos confirmados, salva efeitos idempotentes e não bloqueia FKs (129.1743ms)
+  ✔ reagenda falhas, captura rejeições e para após cinco tentativas (121.5559ms)
+  ✔ recupera falha transitória em tentativa posterior (89.9918ms)
+  ✔ distribui a outbox entre workers concorrentes com SKIP LOCKED (130.7278ms)
+  ✔ nunca publica eventos ainda não confirmados pela transação (91.4996ms)
+✔ PostgreSQL real: transações, integridade e outbox (1771.6481ms)
+▶ API HTTP com PostgreSQL
+  ✔ informa saúde, prontidão e projetos ausentes (29.3728ms)
+  ✔ valida formato, calendário e regras antes de persistir (25.2765ms)
+  ✔ troca estratégias, mantém valores monetários grandes e duração fracionária (80.0971ms)
+  ✔ recusa, substitui apenas o papel afetado e confirma uma única vez sob concorrência (447.9646ms)
+  ✔ substituição manual inválida reverte a transação; substituição automática funciona (29.6875ms)
+✔ API HTTP com PostgreSQL (1009.4242ms)
+✔ cache preserva isolamento, invalida cadastro novo e respeita limite (38.9295ms)
+✔ cria recomendação persistida com parâmetros padrão e evento na mesma transação (29.789ms)
+✔ aceite e respostas confirmam a equipe e emitem um único evento de integração (5.1038ms)
+✔ aceites concorrentes não criam convites duplicados nem perdem alterações (3.5134ms)
+✔ substituição automática preserva escolha e confirmação dos outros papéis (4.5858ms)
+✔ substituição manual valida elegibilidade, papel e exclusões antes do commit (2.5263ms)
+✔ recusa preserva os demais integrantes e recomenda outra pessoa sem convidá-la automaticamente (3.2482ms)
+✔ recusa sem alternativa mantém equipe parcial e permite aceitar os demais papéis (3.3021ms)
+✔ respostas rejeitam convite inexistente, destinatário diferente e vínculo obsoleto (1.8148ms)
+✔ reavaliação cancela convites antigos, atualiza parâmetros e solicita novos aceites (4.3443ms)
+✔ falha no meio de uma alteração ou no commit não publica estado nem eventos parciais (2.1927ms)
+✔ contingência permite sugestão degradada e bloqueia confirmação ou troca manual (1.6706ms)
+✔ sem cadastro disponível responde com equipe parcial explícita (0.7044ms)
+✔ recusa é registrada mesmo sem cache do cadastro, preservando os outros papéis (13.5599ms)
+✔ eventos persistidos alimentam notificações e auditoria, sem duplicar em reentrega (9.1103ms)
+✔ worker compartilha processamento concorrente e drena antes de encerrar (8.9617ms)
+✔ falha periódica é observada e a próxima rodada pode recuperar (29.9191ms)
+✔ encerramento fecha barramento mesmo quando a persistência falha (6.4888ms)
+✔ erro no logger do worker não se torna rejeição não tratada (12.9313ms)
+ℹ tests 77
+ℹ suites 2
+ℹ pass 77
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2767.2041
+--------------------------|---------|----------|---------|---------|-------------------
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+--------------------------|---------|----------|---------|---------|-------------------
+All files                 |   97.09 |    98.37 |      96 |   97.09 |
+ src                      |       0 |        0 |       0 |       0 |
+  server.ts               |       0 |        0 |       0 |       0 | 1-20
+ src/application          |   94.97 |    98.89 |   96.77 |   94.97 |
+  catalog.ts              |     100 |    97.61 |     100 |     100 | 63
+  observers.ts            |     100 |      100 |     100 |     100 |
+  ports.ts                |       0 |        0 |       0 |       0 | 1-17
+  recommendation-cache.ts |     100 |      100 |     100 |     100 |
+  service.ts              |     100 |      100 |     100 |     100 |
+ src/domain               |     100 |     98.8 |     100 |     100 |
+  allocation.ts           |     100 |    98.48 |     100 |     100 | 16
+  index.ts                |     100 |      100 |     100 |     100 |
+  model.ts                |     100 |      100 |     100 |     100 |
+  orchestrator.ts         |     100 |    96.92 |     100 |     100 | 26,65
+  strategies.ts           |     100 |     98.3 |     100 |     100 | 61
+  types.ts                |     100 |      100 |     100 |     100 |
+  visitors.ts             |     100 |      100 |     100 |     100 |
+ src/http                 |     100 |       96 |   66.66 |     100 |
+  app.ts                  |     100 |    95.91 |   66.66 |     100 | 17,34
+  schemas.ts              |     100 |      100 |     100 |     100 |
+ src/infrastructure       |   98.85 |    98.24 |      95 |   98.85 |
+  database.ts             |     100 |      100 |     100 |     100 |
+  entities.ts             |     100 |      100 |     100 |     100 |
+  event-bus.ts            |     100 |     98.3 |     100 |     100 | 86
+  migration.ts            |      92 |    71.42 |      80 |      92 | 69-74
+  worker.ts               |     100 |      100 |   83.33 |     100 |
+--------------------------|---------|----------|---------|---------|-------------------

@@ -1,0 +1,46 @@
+{
+  "nome": "Ana 1",
+  "email": "profissional1@example.com",
+  "papeis": [
+    "DIRETOR"
+  ],
+  "competencias": [
+    {
+      "nome": "narrativa",
+      "nivel": 5
+    },
+    {
+      "nome": "tecnica",
+      "nivel": 5
+    }
+  ],
+  "precoCentavos": 90000,
+  "disponibilidade": {
+    "inicio": "2026-01-01",
+    "fim": "2035-12-31"
+  },
+  "localizacao": "São Paulo",
+  "historico": [
+    {
+      "projetoId": "curta-anterior-1",
+      "genero": "drama",
+      "tipoCaptacao": "ficcao",
+      "papel": "DIRETOR",
+      "nota": 3
+    },
+    {
+      "projetoId": "curta-anterior-2",
+      "genero": "drama",
+      "tipoCaptacao": "ficcao",
+      "papel": "DIRETOR",
+      "nota": 2
+    }
+  ],
+  "avaliacoes": [
+    {
+      "nota": 3,
+      "comentario": "Dado fictício para demonstração.",
+      "data": "2026-06-01"
+    }
+  ]
+}

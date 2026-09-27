@@ -1,0 +1,46 @@
+{
+  "data": "2026-09-24T03:23:14.215Z",
+  "node": "v24.14.0",
+  "postgres": "PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35228, 64-bit",
+  "sistema": "win32 10.0.26200",
+  "cpu": "AMD Ryzen 5 3600 6-Core Processor              ",
+  "processadoresLogicos": 12,
+  "memoriaGB": 16,
+  "profissionais": 10000,
+  "loggerHttp": false,
+  "cenario": "100 POST concorrentes por estratégia; títulos diferentes e mesmos critérios. Cadastro e cálculo inicialmente frios; cache de critérios habilitado; PostgreSQL local real, HTTP TCP e cliente em processo separado; worker de eventos ativo.",
+  "resultados": [
+    {
+      "estrategia": "cosseno",
+      "requisicoes": 100,
+      "simultaneas": 100,
+      "erros": 0,
+      "p50Ms": 764,
+      "p95Ms": 868,
+      "maxMs": 883,
+      "totalMs": 923
+    },
+    {
+      "estrategia": "colaborativa",
+      "requisicoes": 100,
+      "simultaneas": 100,
+      "erros": 0,
+      "p50Ms": 913,
+      "p95Ms": 993,
+      "maxMs": 994,
+      "totalMs": 1042
+    },
+    {
+      "estrategia": "orcamento",
+      "requisicoes": 100,
+      "simultaneas": 100,
+      "erros": 0,
+      "p50Ms": 461,
+      "p95Ms": 534,
+      "maxMs": 535,
+      "totalMs": 581
+    }
+  ],
+  "aprovado": true,
+  "limite": "Não representa todas as combinações de projetos, hardware, rede ou histórico. Critérios distintos exigem novos cálculos; medir novamente no ambiente de destino."
+}

@@ -1,0 +1,97 @@
+{
+  "titulo": "Entre cenas",
+  "genero": "drama",
+  "duracaoMinutos": 20,
+  "orcamentoCentavos": 600000,
+  "inicio": "2027-03-01",
+  "prazo": "2027-03-30",
+  "tipoCaptacao": "ficcao",
+  "localizacao": "São Paulo",
+  "estrategia": "cosseno",
+  "papeis": [
+    {
+      "papel": "DIRETOR",
+      "peso": 2,
+      "competencias": [
+        {
+          "nome": "narrativa",
+          "nivel": 5
+        },
+        {
+          "nome": "tecnica",
+          "nivel": 5
+        }
+      ]
+    },
+    {
+      "papel": "DIRETOR_FOTOGRAFIA",
+      "peso": 1,
+      "competencias": [
+        {
+          "nome": "narrativa",
+          "nivel": 5
+        },
+        {
+          "nome": "tecnica",
+          "nivel": 5
+        }
+      ]
+    },
+    {
+      "papel": "SONOPLASTA",
+      "peso": 1,
+      "competencias": [
+        {
+          "nome": "narrativa",
+          "nivel": 5
+        },
+        {
+          "nome": "tecnica",
+          "nivel": 5
+        }
+      ]
+    },
+    {
+      "papel": "EDITOR",
+      "peso": 1,
+      "competencias": [
+        {
+          "nome": "narrativa",
+          "nivel": 5
+        },
+        {
+          "nome": "tecnica",
+          "nivel": 5
+        }
+      ]
+    },
+    {
+      "papel": "ROTEIRISTA",
+      "peso": 1,
+      "competencias": [
+        {
+          "nome": "narrativa",
+          "nivel": 5
+        },
+        {
+          "nome": "tecnica",
+          "nivel": 5
+        }
+      ]
+    },
+    {
+      "papel": "EFEITOS_VISUAIS",
+      "peso": 1,
+      "competencias": [
+        {
+          "nome": "narrativa",
+          "nivel": 5
+        },
+        {
+          "nome": "tecnica",
+          "nivel": 5
+        }
+      ]
+    }
+  ]
+}

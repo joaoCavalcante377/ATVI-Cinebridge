@@ -1,0 +1,38 @@
+{
+  "natureza": "Fixture sintética e pequena; não representa precisão em produção.",
+  "criterio": "precision@3 = quantidade de IDs relevantes nos três primeiros / 3",
+  "relevantes": [
+    "ana",
+    "bia",
+    "eva"
+  ],
+  "resultados": [
+    {
+      "estrategia": "cosseno",
+      "top3": [
+        "ana",
+        "bia",
+        "eva"
+      ],
+      "precisionAt3": 1
+    },
+    {
+      "estrategia": "colaborativa",
+      "top3": [
+        "bia",
+        "caio",
+        "eva"
+      ],
+      "precisionAt3": 0.6666666666666666
+    },
+    {
+      "estrategia": "orcamento",
+      "top3": [
+        "caio",
+        "davi",
+        "fabio"
+      ],
+      "precisionAt3": 0
+    }
+  ]
+}

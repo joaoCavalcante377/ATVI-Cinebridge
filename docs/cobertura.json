@@ -1,0 +1,36 @@
+{
+  "ferramenta": "c8 + node:test (Node 24 TypeScript nativo)",
+  "escopo": "Todos os arquivos src/**/*.ts; nenhuma exclusão adicional",
+  "total": {
+    "lines": {
+      "total": 1482,
+      "covered": 1439,
+      "skipped": 0,
+      "pct": 97.09
+    },
+    "statements": {
+      "total": 1482,
+      "covered": 1439,
+      "skipped": 0,
+      "pct": 97.09
+    },
+    "functions": {
+      "total": 125,
+      "covered": 120,
+      "skipped": 0,
+      "pct": 96
+    },
+    "branches": {
+      "total": 738,
+      "covered": 726,
+      "skipped": 0,
+      "pct": 98.37
+    },
+    "branchesTrue": {
+      "total": 0,
+      "covered": 0,
+      "skipped": 0,
+      "pct": 100
+    }
+  }
+}

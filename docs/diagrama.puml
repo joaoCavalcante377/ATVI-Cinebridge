@@ -1,0 +1,102 @@
+@startuml
+skinparam classAttributeIconSize 0
+hide empty members
+package "HTTP" {
+  class API_Fastify
+}
+package "Aplicação" {
+  class ServicoEquipes {
+    criar()
+    aceitar()
+    substituir()
+    responder()
+    reavaliar()
+  }
+  interface Repositorio
+  class CatalogoProfissionais
+  class CacheRecomendacoes
+}
+package "Domínio" {
+  class Projeto { +aceitar(visitante) }
+  class Profissional { +aceitar(visitante) }
+  class Competencia
+  class Avaliacao
+  class Equipe
+  class MembroEquipe
+  class Recomendacao
+  class Convite
+  abstract class OrquestradorEquipe {
+    +orquestrar()
+    {abstract} #validarRestricoes()
+    {abstract} #normalizarDados()
+    {abstract} #posProcessar()
+  }
+  class OrquestradorPadrao
+  interface RecomendacaoStrategy { +recomendar() }
+  class SimilaridadeCosseno
+  class FiltragemColaborativa
+  class RegrasOrcamento
+  interface VisitanteProjeto {
+    +visitarProjeto()
+    +visitarProfissional()
+  }
+  class ValidadorConsistencia
+  class CalculadorCompatibilidade
+  class GeradorRelatorio
+}
+package "Infraestrutura e observadores" {
+  class RepositorioPostgres
+  database PostgreSQL
+  class ProcessadorEventos
+  class BusEventos
+  class EventEmitter
+  interface Observador { +atualizar(evento, signal) }
+  class NotificadorEmail
+  class NotificadorInterno
+  class AuditoriaRecomendacao
+}
+API_Fastify --> ServicoEquipes
+ServicoEquipes --> Repositorio
+ServicoEquipes --> CatalogoProfissionais
+ServicoEquipes --> CacheRecomendacoes
+ServicoEquipes --> OrquestradorPadrao
+CacheRecomendacoes --> OrquestradorPadrao
+RepositorioPostgres ..|> Repositorio
+RepositorioPostgres --> PostgreSQL : TypeORM / transações
+OrquestradorPadrao --|> OrquestradorEquipe
+OrquestradorEquipe --> RecomendacaoStrategy
+SimilaridadeCosseno ..|> RecomendacaoStrategy
+FiltragemColaborativa ..|> RecomendacaoStrategy
+RegrasOrcamento ..|> RecomendacaoStrategy
+Projeto "1" -- "1" Equipe
+Projeto "1" -- "0..*" Recomendacao
+Projeto "1" -- "0..*" Convite
+Equipe "1" *-- "0..6" MembroEquipe
+MembroEquipe --> Profissional
+Convite --> Profissional
+Profissional "1" *-- "0..*" Competencia
+Profissional "1" *-- "0..*" Avaliacao
+Projeto --> VisitanteProjeto : aceitar
+Profissional --> VisitanteProjeto : aceitar
+ValidadorConsistencia ..|> VisitanteProjeto
+CalculadorCompatibilidade ..|> VisitanteProjeto
+GeradorRelatorio ..|> VisitanteProjeto
+ProcessadorEventos --> Repositorio : eventos confirmados na outbox
+ProcessadorEventos --> BusEventos
+BusEventos --> EventEmitter
+BusEventos --> Observador : entrega assíncrona acompanhada
+NotificadorEmail ..|> Observador
+NotificadorInterno ..|> Observador
+AuditoriaRecomendacao ..|> Observador
+NotificadorEmail --> Repositorio
+NotificadorInterno --> Repositorio
+AuditoriaRecomendacao --> Repositorio
+note right of NotificadorEmail
+  Caixa de saída local persistida.
+  Não utiliza provedor SMTP.
+end note
+note bottom of OrquestradorEquipe
+  orquestrar é concreto e não sobrescrevível.
+  As etapas protegidas variam nas subclasses.
+end note
+@enduml
